@@ -1,6 +1,5 @@
 class MyValidator < ActiveModel::Validator
   def validate(record)
-    puts record
     if record.title != nil
       if record.title.include? "Won't Believe"
       elsif record.title.include? "Secret"
