@@ -1,12 +1,16 @@
 class MyValidator < ActiveModel::Validator
   def validate(record)
     puts record
-    if record.title.include? "Won't Believe"
-    elsif record.title.include? "Secret"
-    elsif record.title.include? "Guess"
-    elsif record.title.include? "Top"
+    if record.title != nil
+      if record.title.include? "Won't Believe"
+      elsif record.title.include? "Secret"
+      elsif record.title.include? "Guess"
+      elsif record.title.include? "Top"
+      else
+        record.errors[:title] << 'clickbait-y'
+      end
     else
-      record.errors[:title] << 'clickbait-y'
+      record.errors[:title] << 'No title given'
     end
   end
 end
