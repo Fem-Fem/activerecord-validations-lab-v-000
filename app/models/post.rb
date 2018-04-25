@@ -1,15 +1,15 @@
-class MyValidator < ActiveModel::Validator
-  def validate(record)
-    puts record
-    if record.title.include? "Won't Believe"
-    elsif record.title.include? "Secret"
-    elsif record.title.include? "Guess"
-    elsif record.title.include? "Top"
-    else
-      record.errors[:title] << 'clickbait-y'
-    end
-  end
-end
+# class MyValidator < ActiveModel::Validator
+#   def validate(record)
+#     puts record
+#     if record.title.include? "Won't Believe"
+#     elsif record.title.include? "Secret"
+#     elsif record.title.include? "Guess"
+#     elsif record.title.include? "Top"
+#     else
+#       record.errors[:title] << 'clickbait-y'
+#     end
+#   end
+# end
 
 class Post < ActiveRecord::Base
   validates :title, presence: true
