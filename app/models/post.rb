@@ -14,7 +14,7 @@ class MyValidator < ActiveModel::Validator
         end
         if counter == false
           record.errors[:title] << 'clickbait-y'
-        end  
+        end
       else
         record.errors[:title] << 'clickbait-y'
       end
@@ -32,19 +32,4 @@ class Post < ActiveRecord::Base
 
   include ActiveModel::Validations
   validates_with MyValidator
-  # validates :title, presence: true if :not_clickbait
-
-  # def not_clickbait
-  #   return self.title
-  #   if self.title.include? "Won't Believe"
-  #     return false
-  #   elsif self.title.include? "Secret"
-  #     return false
-  #   elsif self.title.include? "Guess"
-  #     return false
-  #   elsif self.title.include? "Top"
-  #     return false
-  #   else
-  #     return true
-  #   end
 end
