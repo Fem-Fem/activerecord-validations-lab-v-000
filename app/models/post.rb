@@ -17,4 +17,5 @@ class Post < ActiveRecord::Base
     else
       return true
     end
+  end
 end
