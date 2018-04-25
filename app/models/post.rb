@@ -6,14 +6,14 @@ class Post < ActiveRecord::Base
   validates :title, presence: true if :not_clickbait
 
   def not_clickbait
-    print Post.title
-    if Post.title.include? "Won't Believe"
+    print self.title
+    if self.title.include? "Won't Believe"
       return false
-    elsif Post.title.include? "Secret"
+    elsif self.title.include? "Secret"
       return false
-    elsif Post.title.include? "Guess"
+    elsif self.title.include? "Guess"
       return false
-    elsif Post.title.include? "Top"
+    elsif self.title.include? "Top"
       return false
     else
       return true
