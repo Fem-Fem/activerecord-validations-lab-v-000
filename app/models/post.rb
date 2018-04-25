@@ -4,4 +4,18 @@ class Post < ActiveRecord::Base
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
   validates :title, presence: true if: :not_clickbait
+
+  def not_clickbait
+    "Won't Believe", "Secret", "Top [number]", or "Guess"
+    if Post.title.include? "Won't Believe"
+      return false
+    elsif Post.title.include? "Secret"
+      return false
+    elsif Post.title.include? "Guess"
+      return false
+    elsif Post.title.include? "Top"
+      return false
+    else
+      return true
+    end
 end
