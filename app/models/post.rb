@@ -5,6 +5,16 @@ class MyValidator < ActiveModel::Validator
       elsif record.title.include? "Secret"
       elsif record.title.include? "Guess"
       elsif record.title.include? "Top"
+        x = record.title.split("Top")
+        counter = false
+        x.each do |int|
+          if int.to_i != nil
+            counter == true
+          end
+        end
+        if counter == false
+          record.errors[:title] << 'clickbait-y'
+        end  
       else
         record.errors[:title] << 'clickbait-y'
       end
