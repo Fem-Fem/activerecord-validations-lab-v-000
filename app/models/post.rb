@@ -1,5 +1,6 @@
 class MyValidator < ActiveModel::Validator
   def validate(record)
+    puts record.title
     if record.title.include? "Won't Believe"
     elsif record.title.include? "Secret"
     elsif record.title.include? "Guess"
